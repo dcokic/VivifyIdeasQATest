@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "e3efd02d-e681-45a4-8fca-611469dcd2e5",
+		"name": "Vivify Ideas QA Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2FsbGVyeS1hcGkudml2aWZ5aWRlYXMuY29tXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQ1NjQ5NTQzLCJleHAiOjE2NDU2NTMxNDMsIm5iZiI6MTY0NTY0OTU0MywianRpIjoiZlFHWXlCcUNzcE1JTm4xMyIsInN1YiI6MjI5MCwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.8zCG1g-3Somt-4ZSksBwHOv5RJnVFoZWKa72eQgkNyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"darijacokic@gmail.com\", \"password\": \"modimodi777\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/auth/login",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Gallerie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2FsbGVyeS1hcGkudml2aWZ5aWRlYXMuY29tXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQ1NjQ5NTQzLCJleHAiOjE2NDU2NTMxNDMsIm5iZiI6MTY0NTY0OTU0MywianRpIjoiZlFHWXlCcUNzcE1JTm4xMyIsInN1YiI6MjI5MCwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.8zCG1g-3Somt-4ZSksBwHOv5RJnVFoZWKa72eQgkNyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"title\": \"macke\", \"description\": \"slike\",\r\n\"images\": [\r\n{\"0\": \"https://thumbs.dreamstime.com/b/red-fox-animal-forest-winter-season-its-surrounding-environment-displaying-rusty-red-color-fur-head-eyes-ears-167936871.jpg\"}]\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/galleries",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"galleries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Galleries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/my-galleries?page=1&term=",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"my-galleries"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "term",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dasa Gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"pm.environment.set(\"GallerieId\", pm.response,JSON.id);\r",
+							"pm.environment.set(\"GallerieTitle\", pm.response,JSON.title);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/galleries/4883",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"4883"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2FsbGVyeS1hcGkudml2aWZ5aWRlYXMuY29tXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjQ1NjQ5NTQzLCJleHAiOjE2NDU2NTMxNDMsIm5iZiI6MTY0NTY0OTU0MywianRpIjoiZlFHWXlCcUNzcE1JTm4xMyIsInN1YiI6MjI5MCwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.8zCG1g-3Somt-4ZSksBwHOv5RJnVFoZWKa72eQgkNyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/auth/logout",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
